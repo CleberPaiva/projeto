@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Kinkas Confeitaria</title>
+</head>
+<body>
+    <nav id="adm">
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a>
+        
+    </nav>
+
+    <section id="adm_produto">
+        <h2>Administração de Produtos</h2>
+        <a href="{% url "url_admproduto" %}" class="botao">Acessar</a>
+    </section>
+
+    <section id="adm_pedidos">
+        <h2>Administração de Pedidos</h2>
+        <a href="{% url "admpedido" %}" class="botao">Acessar</a>
+    </section>
+
+
+    <footer>
+        <a href="/logoutadm">Logout</a>
+        <a href="#">Voltar</a>
+
+        <p>Kinkas Confeitaria trazendo o sabor a sua vida desde 2015</p>
+    </footer>
+</body>
+</html>

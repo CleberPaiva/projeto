@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Kinkas Confeitaria</title>
+</head>
+<body>
+    <nav id="adm">
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a>
+    </nav>
+
+    <section id="whatsapp">
+        <h2>Fale Conosco pelo Whatsapp</h2>
+        <a href="https://wa.me/5511989698324" class="botao">Whatsapp</a>
+    </section>
+
+    <section id="instagram">
+        <h2>Acesse nosso Instagram</h2>
+        <a href="https://www.instagram.com/kinkasconfeitaria/" class="botao">Instagram</a>
+    </section>
+
+    <section id="telefone">
+        <h2>Ligue para Nós</h2>
+        <a href="tel:11989698324"class="botao">(11) 98969-8324</a>
+    </section>

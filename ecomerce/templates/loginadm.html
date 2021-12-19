@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Login adm</title>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a> 
+    </nav>
+    <h1>Login Adm</h1>
+    <form action="submit" method="POST">
+        {% csrf_token %}
+        <label for="">Usuario:</label>
+        <input type="text" name="username" id="">
+        <label for="">Senha:</label>
+        <input type="password" name="password">
+        <button type="submit">Entrar</button>
+    </form>
+
+    {%for message in messages %}
+    <strong>Erro</strong><p>{{message}}</p>
+    {% endfor %}
+</body>
+</html>

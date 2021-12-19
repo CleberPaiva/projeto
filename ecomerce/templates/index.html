@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Kinkas Confeitaria</title>
+</head>
+<body>
+    <nav>
+        <a href="#">Kinkas Confeitaria</a>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="{% url "url_compras" %}">Ir as compras</a></li>
+            <li><a href="#serviços">Serviços</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="{% url "url_contato" %}">Contato</a></li>
+            <li><a href="/cadastrar/">Cadastra-se</a></li>
+        </ul>
+    </nav>
+
+    <header id="topo">
+        <h1>Kinkas Confeitaria</h1>
+        <p>Trabalhamos com qualquer tipo de arte da Confeitaria, como Bolos, Cupcakes, Doces para festas e etc...</p>
+        <a href="#serviços" class="botao">Ver mais</a>
+    </header>
+    <section id="sobre">
+        <h2>Sobre</h2>
+        <p> Desde 2015 nos dedicamos a arte da Confeitaria, trabalhando com diversos tipos de bolos, recheios, sabores e formatos, sempre atendendo o pedido do jeito do cliente.</p>
+        <a href="{% url "url_compras" %}" class="botao">ir as compras</a>
+    </section>
+
+    <section id="serviços">
+        <h2>Serviços</h2>
+
+        <div>
+
+            <img src="../static/img/bolo1.png" alt="bolo">
+            <h3>Bolos</h3>
+            <p>Trabalhamos com diversos tipos de Bolos, Sabores, Tamanhos e Formatos.<p>Confira nas imagens abaixo</p>
+
+        </div>
+
+        <div>
+
+            <img src="../static/img/cupcake1.png" alt="Cupcakes">
+            <h3>Cupcakes</h3>
+            <p>Fazemos Cupcakes de diferentes Massas, Tamanhos, Sabores e Recheios.
+            <p>Confira nas imagens abaixo</p>
+
+        </div>
+
+        <div>
+
+            <img src="../static/img/brigadeiro1.png" alt="Brigadeiro">
+            <h3>Doces de Festa</h3>
+            <p>O doce que sua festa precisa você encontra na kinkas confeitaria. Brigadeiros, beijinho e derivados.<p>Confira nas imagens abaixo</p>
+
+        </div>
+
+    </section>
+
+    <section id="fotos">
+        <h2>Fotos</h2>
+        <img src="../static/img/img1.jpg" alt="bologuloseimas">
+        <img src="../static/img/img2.jpg" alt="bolosimples">
+        <img src="../static/img/img3.jpg" alt="boloflorestanegra">
+        <img src="../static/img/img4.jpg" alt="bolodefrutas">
+        <img src="../static/img/img5.jpg" alt="brigadeiros">
+        <img src="../static/img/img6.jpg" alt="Cupcakesimg">
+    </section>
+
+    <footer>
+
+        <p>Kinkas Confeitaria trazendo o sabor a sua vida desde 2015</p>
+    </footer>
+</body>
+</html>

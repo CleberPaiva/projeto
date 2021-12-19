@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load widget_tweaks %} 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Carrinho</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a> 
+        <ul>
+            <li><a href="{% url "url_index" %}">Home</a></li>
+            <li><a href="{% url "url_compras" %}">Voltar a Loja</a></li>
+            <li><a href="{% url "url_contato" %}">Contato</a></li>
+        </ul>
+    </nav>
+
+    <div id="titulo">
+        <h1>Meu Carrinho</h1>
+    </div>
+
+    <!-- Continuar Compras -->
+    <div id="continuar">
+        <a class="botao" href="{% url 'url_compras' %}">Continuar comprando</a>
+    </div>
+
+
+    <section id="infoscart">
+        <div id="pes">
+            {% if cart %}
+        </div>
+    </section>
+
+    {% for item in cart %}
+    <div id="prod">
+        {% with product=item.product %}
+        <img src="../media/{{ product.img }}" alt="produto">
+        <!-- Nome Produto -->
+        <div id="nomecart">
+                <p>Produto: <a href="{{ product.get_absolute_url }}">{{ product.nome }}</a></p>
+        </div>
+        
+        <!-- Quantidade de Produtos -->
+        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {% csrf_token %}
+
+            <div id="quantidadecart">
+                <p>Quantidade {% render_field item.update_quantity_form.quantity class+="form-control" %}</p>
+            </div> 
+
+
+        <!-- Atualizar Quantidade-->
+            <div id="atualizarcart">
+                <input class="botao" type="submit" value="Atualizar">
+            </div>
+                {{ item.update_quantity_form.override }}
+        </form>
+
+        <!-- Preço total -->
+        <div id="totalcart">
+            <p> Preço: R$ {{ item.total_price }}0</p>
+        </div>
+
+        <!-- Remover Produto -->
+        <div id="removercart">
+            <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                {% csrf_token %}
+                <input class="botao" type="submit" value="Remover">
+            </form>
+        </div> 
+        
+    </div>
+
+    <!-- Total dos Produtos -->
+    {% endwith %}
+    {% endfor %}
+    <div id="ototalcart">
+        <h2>Total: R$ {{ cart.get_total_price }}0</h2>
+    </div>
+
+
+    {% else %}
+    <h2>O carrinho está vazio!</h2>
+    {% endif %}
+
+    <section id="final">
+
+        <!-- Finalizar-->
+        <div id="finalizar">
+            <a class="botao" href="{% url "orders:create" %}">Finalizar compra</a>
+        </div>
+    </section>
+</body>
+</html>

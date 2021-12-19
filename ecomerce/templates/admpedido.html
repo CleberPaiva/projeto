@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Kinkas Confeitaria</title>
+</head>
+<body>
+
+    
+    <nav id="adm">
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a>
+    </nav>
+
+    <div id="titulo">
+        <h1>Administração Pedidos</h1>
+    </div>
+
+    <section id="pedidoar">
+            {% for pedido in pedidos %}
+            {% if pedido.id not in dados%}
+            <div id="opedido">
+                <img src="../static/img/alfinete.png" alt="alfinete" width="50px" height="50px" margin="0px">
+                <ul id="ulpedido">
+                    <li>Nome: {{ pedido.name}}</li>
+                    <li>Email: {{ pedido.email }}</li>
+                    <li>Cpf: {{ pedido.cpf }}</li>
+                    <li>Cep: {{ pedido.postal_code }}</li>
+                    <li>Endereço: {{ pedido.address}}</li>
+                    <li>Número: {{ pedido.number}}º</li>
+                    <li>Complemento: {{ pedido.complement}}</li>
+                    <li>Bairro: {{ pedido.district }}</li>
+                    <li>Estado: {{ pedido.state }}</li>
+                    <li>Cidade: {{ pedido.city}}</li>
+                    <li>Produtos:</li>
+                    {% for item in items %}
+                        {% if item.order.id == pedido.id %}
+                        <li>Nome: {{ item.product.nome }}</li>
+                        <li>Preço: R$ {{item.price}}</li>
+                        <li>Quantidade:{{item.quantity}}</li>
+                        <li>Total: R$ {{ item.total }},00</li>
+                        {% endif%}
+                    {% endfor %}
+                    <a href="{{pedido.id}}/aceitar/" class="botao">Aceitar</a>
+                    <a href="{{pedido.id}}/recusar/" class="botao" id="deletar">Recusar</a>
+                </ul>
+            </div>
+            {%endif%}
+        {% endfor %}
+    </section>
+    
+
+</body>
+</html>

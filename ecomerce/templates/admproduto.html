@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Kinkas Confeitaria</title>
+</head>
+<body>
+    <nav id="adm">
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a>
+    </nav>
+
+    <div id="novoproduto">
+        <h1>Administração de Produtos</h1>
+        <h2><a href="{% url "url_produto"%}" class="botao">Novo</a></h2>
+    </div>
+
+
+    <section id="produtos">
+        <div id="produtoscompra">
+            {% for produto in produtos %}
+                {% if produto %}
+                    <div id="produtocom">
+                        <img src="../media/{{ produto.img }}" alt="">
+                        <p> {{ produto.nome}}</p>
+                        <p>Kg: {{ produto.kg }} </p>
+                        <p>Preço: R$ {{ produto.preco }}</p>
+                        <a href="{% url "url_update" produto.id %}" class="botao">Editar</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+</body>
+</html>

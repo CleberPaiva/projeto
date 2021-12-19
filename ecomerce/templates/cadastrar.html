@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="shortcut icon" href="../static/img/Kinkas Confeitaria.png" type="image/x-icon" />
+    <title>Cadastrar</title>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a> 
+        <ul>
+            <li><a href="{% url "url_index" %}">Home</a></li>
+            <li><a href="{% url "url_contato" %}">Contato</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <section id="cadastro">
+        <h1>Cadastrar-se</h1>
+        <form action="submit" method="POST">
+            {% csrf_token %}
+            <div id="usuario">
+                <label for="">Usuario:</label>
+                <input type="text" name="username" id="">
+            </div>
+
+            <div id="senha">
+                <label for="">Email:</label>
+                <input type="Email" name="email">
+            </div>
+
+            <div id="senha">
+                <label for="">Senha:</label>
+                <input type="password" name="password">
+            </div>
+
+            <div id="botaoentrar">
+                <button type="submit" class="botao">Cadastrar</button>
+            </div>
+        </form>
+    </section>
+
+    
+</body>
+</html>

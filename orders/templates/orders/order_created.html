@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,700&family=Nunito:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/Kinkas Confeitaria.png' %}" type="image/x-icon" />
+    <title>Finalizar</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url "url_index" %}">Kinkas Confeitaria</a>
+        <ul>
+            <li><a href="{% url "url_index" %}">Home</a></li>
+            <li><a href="{% url "url_compras" %}">Voltar a Loja</a></li>
+            <li><a href="{% url "url_contato" %}">Contato</a></li>
+            <li id="carrinhow">
+                <img src="{% static 'img/carrinho.png' %}" alt="" width="30px">
+                <a href="{% url 'cart:cart_detail' %}" src="{% static 'img/carrinho.png' %}">Carrinho</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <section id="pedidofeito">
+        <h1>Pedido realizado</h1>
+        <p id="pok">O número do seu pedido é <h2>{{ order.id }}</h2>.</p>
+        
+    </section>
+</body>
+</html>
